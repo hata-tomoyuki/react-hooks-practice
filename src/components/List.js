@@ -1,7 +1,7 @@
 import React from 'react'
 import Item from './Item';
 
-const List = ({todos, deleteTodo}) => {
+const List = ({todos, deleteTodo, updateTodo}) => {
     const complete = (id) => {
         deleteTodo(id);
     }
@@ -9,7 +9,12 @@ const List = ({todos, deleteTodo}) => {
     return (
         <div>
             {todos.map(todo =>
-                <Item todo={todo} complete={complete} key={todo.id} />
+                <Item
+                    todo={todo}
+                    complete={complete}
+                    key={todo.id}
+                    updateTodo={updateTodo}
+                />
             )}
         </div>
     )
