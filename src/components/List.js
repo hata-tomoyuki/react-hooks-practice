@@ -1,8 +1,16 @@
 import React from 'react'
 
-const List = () => {
+const List = ({todos}) => {
   return (
-    <div></div>
+    <div>
+        {todos.map(todo => {
+            return(
+                <div>
+                    <span>{todo.content}</span>
+                </div>
+            )
+        })}
+    </div>
   )
 }
 
