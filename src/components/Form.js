@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import { useDispatchTodos } from '../context/TodoContext';
 
-const Form = ({createTodo}) => {
+const Form = () => {
     const [enteredTodo, setEnteredTodo] = useState("");
+
+    const dispatch = useDispatchTodos();
 
     const addTodo = (e) => {
         e.preventDefault();
@@ -11,7 +14,7 @@ const Form = ({createTodo}) => {
             content: enteredTodo,
         }
 
-        createTodo(newTodo);
+        dispatch({type: 'todo/add', todo: newTodo});
 
         setEnteredTodo("");
     }
