@@ -5,7 +5,7 @@ const List = ({todos}) => {
     <div>
         {todos.map(todo => {
             return(
-                <div>
+                <div key={todo.id}>
                     <span>{todo.content}</span>
                 </div>
             )
