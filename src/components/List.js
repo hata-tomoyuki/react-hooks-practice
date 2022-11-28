@@ -1,4 +1,5 @@
 import React from 'react'
+import Item from './Item';
 
 const List = ({todos, deleteTodo}) => {
     const complete = (id) => {
@@ -7,18 +8,9 @@ const List = ({todos, deleteTodo}) => {
 
     return (
         <div>
-            {todos.map(todo => {
-                return(
-                    <div key={todo.id}>
-                        <button
-                            onClick={() => complete(todo.id)}
-                        >
-                            完了
-                        </button>
-                        <span>{todo.content}</span>
-                    </div>
-                )
-            })}
+            {todos.map(todo =>
+                <Item todo={todo} complete={complete} key={todo.id} />
+            )}
         </div>
     )
 }
